@@ -1,10 +1,4 @@
-e=900
-Last-Modified: Mon, 17 Apr 2017 11:44:36 GMT
-Expires: Sun, 19 Nov 1978 05:00:00 GMT
-Vary: Cookie
-Vary: Accept-Encoding
-
-c59d
+c514
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="ie6 ie" lang="fr" dir="ltr"> <![endif]-->
 <!--[if IE 7]>    <html class="ie7 ie" lang="fr" dir="ltr"> <![endif]-->
@@ -55,7 +49,7 @@ c59d
 <script type="text/javascript" src="https://www.polytechnique.edu/sites/all/institutionnel/js/js_tbnFJ50oxA9pOcqRzGYk9aCxygRs0B-e52zJgyw_3jE.js"></script>
 <script type="text/javascript">
 <!--//--><![CDATA[//><!--
-jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"fr\/","ajaxPageState":{"theme":"polytechnique_core","theme_token":"D_qenOD4CdCDX-h_jaZjv8ef_kJhlZIWm2n7rldTwr8","js":{"0":1,"\/\/platform.twitter.com\/widgets.js":1,"sites\/all\/modules\/addthis\/addthis.js":1,"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"public:\/\/languages\/fr_wiyLDHt5dlvz1o2yy63Q_SlwhGEatY-TJENonzCwRH0.js":1,"sites\/all\/modules\/piwik\/piwik.js":1,"sites\/all\/themes\/polytechnique\/polytechnique_core\/js\/jquery.placeholder.min.js":1,"sites\/all\/themes\/polytechnique\/polytechnique_core\/js\/script.js":1,"sites\/all\/themes\/polytechnique\/polytechnique_core\/js\/home_slide.js":1,"sites\/all\/themes\/polytechnique\/polytechnique_core\/js\/jquery.r9-cookies.min.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"sites\/all\/modules\/ldap\/ldap_user\/ldap_user.css":1,"modules\/aggregator\/aggregator.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/ldap\/ldap_servers\/ldap_servers.admin.css":1,"sites\/all\/modules\/oembed\/oembed.base.css":1,"sites\/all\/modules\/oembed\/oembed.theme.css":1,"sites\/all\/modules\/panels\/css\/panels.css":1,"modules\/locale\/locale.css":1,"https:\/\/fonts.googleapis.com\/css?family=Droid+Serif%3A400%2C700%7CMuli":1,"sites\/all\/themes\/polytechnique\/polytechnique_core\/css\/reset.min.css":1,"sites\/all\/themes\/polytechnique\/polytechnique_core\/css\/custompanels.css":1,"sites\/all\/themes\/polytechnique\/polytechnique_core\/css\/panels.css":1,"sites\/all\/themes\/polytechnique\/polytechnique_core\/css\/style.css":1,"sites\/all\/themes\/polytechnique\/polytechnique_core\/css\/style_tma.css":1,"sites\/all\/themes\/polytechnique\/polytechnique_core\/css\/info-cookies.css":1}},"piwik":{"trackMailto":1},"urlIsAjaxTrusted":{"\/index.php":true}});
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"fr\/","ajaxPageState":{"theme":"polytechnique_core","theme_token":"0FsveDaoCwvG8pN7zffnEPUBXLcZMuDDf233IUa3hDs","js":{"0":1,"\/\/platform.twitter.com\/widgets.js":1,"sites\/all\/modules\/addthis\/addthis.js":1,"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"public:\/\/languages\/fr_wiyLDHt5dlvz1o2yy63Q_SlwhGEatY-TJENonzCwRH0.js":1,"sites\/all\/modules\/piwik\/piwik.js":1,"sites\/all\/themes\/polytechnique\/polytechnique_core\/js\/jquery.placeholder.min.js":1,"sites\/all\/themes\/polytechnique\/polytechnique_core\/js\/script.js":1,"sites\/all\/themes\/polytechnique\/polytechnique_core\/js\/home_slide.js":1,"sites\/all\/themes\/polytechnique\/polytechnique_core\/js\/jquery.r9-cookies.min.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"sites\/all\/modules\/ldap\/ldap_user\/ldap_user.css":1,"modules\/aggregator\/aggregator.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/ldap\/ldap_servers\/ldap_servers.admin.css":1,"sites\/all\/modules\/oembed\/oembed.base.css":1,"sites\/all\/modules\/oembed\/oembed.theme.css":1,"sites\/all\/modules\/panels\/css\/panels.css":1,"modules\/locale\/locale.css":1,"https:\/\/fonts.googleapis.com\/css?family=Droid+Serif%3A400%2C700%7CMuli":1,"sites\/all\/themes\/polytechnique\/polytechnique_core\/css\/reset.min.css":1,"sites\/all\/themes\/polytechnique\/polytechnique_core\/css\/custompanels.css":1,"sites\/all\/themes\/polytechnique\/polytechnique_core\/css\/panels.css":1,"sites\/all\/themes\/polytechnique\/polytechnique_core\/css\/style.css":1,"sites\/all\/themes\/polytechnique\/polytechnique_core\/css\/style_tma.css":1,"sites\/all\/themes\/polytechnique\/polytechnique_core\/css\/info-cookies.css":1}},"piwik":{"trackMailto":1},"urlIsAjaxTrusted":{"\/index.php":true}});
 //--><!]]>
 </script>
 <link rel="apple-touch-icon-precomposed" href="/sites/all/images/icone-apple.png" />  
@@ -146,7 +140,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"fr\/","ajaxPageSta
   <label class="element-invisible" for="edit-search-block-form--2">Rechercher </label>
  <input title="Indiquer les termes à rechercher" type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
 </div>
-<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Rechercher" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-1j2wNNH-pcLgFqlB6jidK3Mjd31j3UW5M1rNTXP8OKU" />
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Rechercher" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-up3Sf93ASd16yxKOH-Z2nEZTY3CW3v498bARFFnQCV8" />
 <input type="hidden" name="form_id" value="search_block_form" />
 </div>
 </div></form>
@@ -267,26 +261,26 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"fr\/","ajaxPageSta
       <div class="inside">
         <div class="contextual-links-region panel-pane pane-block pane-views-slideshow-block pane-views" id="home-slide">
           <div class="pane-content">
-            <div class="view view-slideshow view-id-slideshow view-display-id-default view-dom-id-4b509ec8f00167fa1fd95924173c021e">
+            <div class="view view-slideshow view-id-slideshow view-display-id-default view-dom-id-1c49a4d718fdc3a119ff9e8a72c5fcf0">
         
   
   
       <div class="view-content">
       <div class="item-list">    <ul>          <li class="views-row views-row-1 views-row-odd views-row-first">  
+          <img typeof="foaf:Image" src="https://www.polytechnique.edu/sites/all/institutionnel/qpuc_0.jpg" width="530" height="350" alt="" />    
+          <div class="slide_text slide_title">L&#039;X sera-t-elle championne des grandes écoles ?</div>    
+          <div class="field-content slide_description slide_text">Quatre élèves vont se défier le 24 avril prochain lors de la Spéciale &quot;Questions pour un champion&quot; grandes écoles sur France 3.</div>    
+          <span class="field-content red_button"><a href="https://www.polytechnique.edu/fr/content/lx-sera-t-elle-championne-des-grandes-ecoles">Lire la suite</a></span>  </li>
+          <li class="views-row views-row-2 views-row-even">  
           <img typeof="foaf:Image" src="https://www.polytechnique.edu/sites/all/institutionnel/photo_harry_2_slideshow.png" width="530" height="350" alt="" />    
           <div class="slide_text slide_title">L&#039;X, un univers fantastique</div>    
           <div class="field-content slide_description slide_text">L’École polytechnique dévoile deux vidéos destinées à renforcer sa notoriété et à recruter des étudiants dans le monde entier.</div>    
           <span class="field-content red_button"><a href="https://www.polytechnique.edu/fr/content/lx-un-univers-fantastique">Lire la suite</a></span>  </li>
-          <li class="views-row views-row-2 views-row-even">  
+          <li class="views-row views-row-3 views-row-odd views-row-last">  
           <img typeof="foaf:Image" src="https://www.polytechnique.edu/sites/all/institutionnel/x_0.jpg" width="530" height="353" alt="" />    
           <div class="slide_text slide_title">L&#039;X, 4e meilleure université à taille humaine du monde</div>    
           <div class="field-content slide_description slide_text">Dans le nouveau classement des &quot;small universities&quot; du Times Higher Education, l&#039;X figure à la 4e place mondiale.</div>    
           <span class="field-content red_button"><a href="https://www.polytechnique.edu/fr/content/lx-4e-meilleure-universite-taille-humaine-du-monde">Lire la suite</a></span>  </li>
-          <li class="views-row views-row-3 views-row-odd views-row-last">  
-          <img typeof="foaf:Image" src="https://www.polytechnique.edu/sites/all/institutionnel/x-up_1.jpg" width="530" height="353" alt="" />    
-          <div class="slide_text slide_title">Le prix « X-Grant » soutient les jeunes pousses d’X-Up</div>    
-          <div class="field-content slide_description slide_text">L’X crée le prix « X-Grant » pour soutenir des start-up accélérées au sein d’X-Up. Il offre jusqu&#039;à 20 000 euros de financement.</div>    
-          <span class="field-content red_button"><a href="https://www.polytechnique.edu/fr/content/le-prix-x-grant-soutient-les-jeunes-pousses-dx">Lire la suite</a></span>  </li>
       </ul></div>    </div>
   
       <h2 class="element-invisible">Pages</h2><div class="item-list"><ul class="pager"><li class="pager-ellipsis first">…</li>
@@ -308,31 +302,31 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"fr\/","ajaxPageSta
           <div class="block block-views content contextual-links-region">
             <div class="title"><span class="text">Actualités</span></div>
               <div class="content">
-                <div class="view view-view-page-actualites-accueil view-id-view_page_actualites_accueil view-display-id-default block block-actualites view-dom-id-7f6eca3722beaca36754971a9d8cd122">
+                <div class="view view-view-page-actualites-accueil view-id-view_page_actualites_accueil view-display-id-default block block-actualites view-dom-id-31472306146a0891820875170340b6b4">
         
   
   
       <div class="view-content">
       <div class="item-list">    <ul class="view-actualites">          <li class="views-row views-row-1 views-row-odd views-row-first">  
+  <div class="views-field views-field-field-images">        <div class="field-content"><a href="/fr/content/appel-candidatures-pour-le-prix-de-mecanique-jean-mandel-0"><img typeof="foaf:Image" src="https://www.polytechnique.edu/sites/all/institutionnel/styles/medium/public/mandel_0.jpg?itok=Tx8FokdH" width="220" height="220" alt="" /></a></div>  </div>  
+  <div class="views-field views-field-created">        <span class="field-content date">19.04.2017</span>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content title"><a href="/fr/content/appel-candidatures-pour-le-prix-de-mecanique-jean-mandel-0">Appel à candidatures pour le prix de mécanique Jean Mandel</a></span>  </div></li>
+          <li class="views-row views-row-2 views-row-even">  
+  <div class="views-field views-field-field-images">        <div class="field-content"><a href="/fr/content/trois-nominations-lx"><img typeof="foaf:Image" src="https://www.polytechnique.edu/sites/all/institutionnel/styles/medium/public/nadine_briere_2.jpg?itok=EZdC9FQ4" width="220" height="220" alt="" /></a></div>  </div>  
+  <div class="views-field views-field-created">        <span class="field-content date">19.04.2017</span>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content title"><a href="/fr/content/trois-nominations-lx">Trois nominations à l&#039;X </a></span>  </div></li>
+          <li class="views-row views-row-3 views-row-odd">  
+  <div class="views-field views-field-field-images">        <div class="field-content"><a href="/fr/content/explorer-lunivers-grace-au-laser-le-plus-gros-du-monde"><img typeof="foaf:Image" src="https://www.polytechnique.edu/sites/all/institutionnel/styles/medium/public/nif_carree.jpg?itok=-qKR2h8_" width="220" height="220" alt="" /></a></div>  </div>  
+  <div class="views-field views-field-created">        <span class="field-content date">18.04.2017</span>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content title"><a href="/fr/content/explorer-lunivers-grace-au-laser-le-plus-gros-du-monde">Explorer l’univers grâce au laser le plus gros du monde</a></span>  </div></li>
+          <li class="views-row views-row-4 views-row-even">  
   <div class="views-field views-field-field-images">        <div class="field-content"><a href="/fr/content/des-chercheurs-de-lx-mettent-au-point-un-logiciel-de-spatialisation-3d-sonore"><img typeof="foaf:Image" src="https://www.polytechnique.edu/sites/all/institutionnel/styles/medium/public/mybino2_0.png?itok=rzsqe9ib" width="220" height="220" alt="" /></a></div>  </div>  
   <div class="views-field views-field-created">        <span class="field-content date">10.04.2017</span>  </div>  
   <div class="views-field views-field-title">        <span class="field-content title"><a href="/fr/content/des-chercheurs-de-lx-mettent-au-point-un-logiciel-de-spatialisation-3d-sonore">Des chercheurs de l&#039;X mettent au point un logiciel de spatialisation 3D son</a></span>  </div></li>
-          <li class="views-row views-row-2 views-row-even">  
+          <li class="views-row views-row-5 views-row-odd views-row-last">  
   <div class="views-field views-field-field-images">        <div class="field-content"><a href="/fr/content/le-defi-economique-aux-jeudis-de-la-recherche-de-lx"><img typeof="foaf:Image" src="https://www.polytechnique.edu/sites/all/institutionnel/styles/medium/public/international-polytechnique_0.jpg?itok=cgd65h-t" width="220" height="220" alt="" /></a></div>  </div>  
   <div class="views-field views-field-created">        <span class="field-content date">6.04.2017</span>  </div>  
   <div class="views-field views-field-title">        <span class="field-content title"><a href="/fr/content/le-defi-economique-aux-jeudis-de-la-recherche-de-lx">Le défi économique aux Jeudis de la recherche de l&#039;X</a></span>  </div></li>
-          <li class="views-row views-row-3 views-row-odd">  
-  <div class="views-field views-field-field-images">        <div class="field-content"><a href="/fr/content/reguler-le-bruit-marin-conseils-pour-les-pouvoirs-publics-et-les-industriels"><img typeof="foaf:Image" src="https://www.polytechnique.edu/sites/all/institutionnel/styles/medium/public/ocean_vignette.jpg?itok=z8z3LA8t" width="220" height="220" alt="" /></a></div>  </div>  
-  <div class="views-field views-field-created">        <span class="field-content date">4.04.2017</span>  </div>  
-  <div class="views-field views-field-title">        <span class="field-content title"><a href="/fr/content/reguler-le-bruit-marin-conseils-pour-les-pouvoirs-publics-et-les-industriels">Réguler le bruit marin: conseils pour les pouvoirs publics et les industriels</a></span>  </div></li>
-          <li class="views-row views-row-4 views-row-even">  
-  <div class="views-field views-field-field-images">        <div class="field-content"><a href="/fr/content/le-club-des-industriels-de-lx-un-lien-entre-start-et-entreprises"><img typeof="foaf:Image" src="https://www.polytechnique.edu/sites/all/institutionnel/styles/medium/public/club_industriels_vignette_0.jpg?itok=GH5Cn8Oe" width="220" height="220" alt="" /></a></div>  </div>  
-  <div class="views-field views-field-created">        <span class="field-content date">3.04.2017</span>  </div>  
-  <div class="views-field views-field-title">        <span class="field-content title"><a href="/fr/content/le-club-des-industriels-de-lx-un-lien-entre-start-et-entreprises">Le Club des industriels de l’X, un lien entre start-up et entreprises</a></span>  </div></li>
-          <li class="views-row views-row-5 views-row-odd views-row-last">  
-  <div class="views-field views-field-field-images">        <div class="field-content"><a href="/fr/content/un-x-en-route-vers-les-jeux-olympiques"><img typeof="foaf:Image" src="https://www.polytechnique.edu/sites/all/institutionnel/styles/medium/public/x-systra_vignette.jpg?itok=C5S0eWBp" width="220" height="220" alt="" /></a></div>  </div>  
-  <div class="views-field views-field-created">        <span class="field-content date">29.03.2017</span>  </div>  
-  <div class="views-field views-field-title">        <span class="field-content title"><a href="/fr/content/un-x-en-route-vers-les-jeux-olympiques">Un X en route vers les Jeux olympiques</a></span>  </div></li>
       </ul></div>    </div>
   
   
@@ -353,12 +347,12 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"fr\/","ajaxPageSta
           <div class="contextual-links-region panel-pane pane-block pane-block-8 pane-block evenements" id="views-vue-de-toutes-les-evts-block">
             <div class="pane-content">
                                           <h2 class="pane-title-evt">Évènements</h2>
-<div  class="content"><ul><li class="first" ><span class="day">25</span><span class="month"> AVRIL</span><span class="title">Conférence avec Pierre Cahuc et Stéphane Carcillo</span></li><li><span class="day">4</span><span class="month"> MAI</span><span class="title">Jumping de l'X</span></li><li class="last" ><span class="day">17</span><span class="month"> MAI</span><span class="title">Finale nationale des olympiades des sciences de lingénieur</span></li></ul><a class="red_button" href="https://www.polytechnique.edu/fr/evenements"><span>Tous les &eacute;v&eacute;nements</span></a></div>            </div>
+<div  class="content"><ul><li class="first" ><span class="day">25</span><span class="month"> AVRIL</span><span class="title">Conférence avec Pierre Cahuc et Stéphane Carcillo</span></li><li><span class="day">27</span><span class="month"> AVRIL</span><span class="title">Séminaire sur la place des femmes dans l'enseignement supérieur</span></li><li class="last" ><span class="day">4</span><span class="month"> MAI</span><span class="title">Du 4 au 7 mai 2017, Jumping de l'X</span></li></ul><a class="red_button" href="https://www.polytechnique.edu/fr/evenements"><span>Tous les &eacute;v&eacute;nements</span></a></div>            </div>
           </div>
           <div class="contextual-links-region panel-pane pane-block pane-views-page-accueil-breve-block block-views-vue-de-toutes-les-breves-block pane-views" id="views-vue-de-toutes-les-breves-block">
             <h2 class="pane-title">Brèves</h2>
             <div class="pane-content">
-              <div class="view view-page-accueil-breve view-id-page_accueil_breve view-display-id-default view-dom-id-129db5dc72c5114b66fd0435e8aff9af">
+              <div class="view view-page-accueil-breve view-id-page_accueil_breve view-display-id-default view-dom-id-e5b0450f76081236c1d462f80fe51d16">
         
   
   

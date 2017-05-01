@@ -17,10 +17,25 @@ void parse_url(char* url, url_info *info)
 	// e.g. https://www.polytechnique.edu:80/index.php
 	(*info).url = url;
 	(*info).protocol = strtok(url, ":");
-	char* h = strtok(NULL, ":");
-	(*info).port = atoi(strtok(NULL, "/"));
-	(*info).path = strtok(NULL, " ");
-	(*info).host = strtok(h, "/");
+	char* rest;
+	rest = url+strlen((*info).protocol)+3;
+    char* res;
+    res = strstr(rest, "/");
+	if(res == NULL) exit_with_error("the url is not valid!");
+	if(strlen(res) == 1) (*info).path = "";
+	else strcpy((*info).path, res+1);
+	res = strstr(rest, ":");
+	char* h;
+	if(res == NULL){
+		h = strtok(NULL, "/");
+		(*info).host = strtok(h, "/");
+		(*info).port = 80;
+	}
+	else{
+		h = strtok(NULL, ":");
+		(*info).port = atoi(strtok(NULL, "/"));
+		(*info).host = strtok(h, "/");
+	}
 
 }
 

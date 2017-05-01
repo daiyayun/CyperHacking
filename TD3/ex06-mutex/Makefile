@@ -8,14 +8,13 @@
 
 # Here is a simple Make Macro.
 
-LINK_TARGET = wgetX
+LINK_TARGET = mutex
 
 # Here is a Make Macro that uses the backslash to extend to multiple lines.
 # This allows quick modification of more object files.
 
 OBJS = \
-	wgetX.o \
-	url.o
+	mutex.o
 	
 # Here is a Make Macro defined by two Macro Expansions.
 # A Macro Expansion may be treated as a textual replacement of the Make Macro.
@@ -51,11 +50,10 @@ clean:
 # its dependencies' rules have been executed successfully.
 
 # Here is a Rule that uses some built-in Make Macros in its command:
-# $@ expands to the rule's target, in this case "wgetX".
-# $^ expands to the rule's dependencies, in this case the two files
-# url.o and wgetX.o
+# $@ expands to the rule's target
+# $^ expands to the rule's dependencies
 $(LINK_TARGET) : $(OBJS)
-	cc -g -o $@ $^ 
+	cc -g3 -pthread -o  $@ $^ 
 
 # Here is a Pattern Rule, often used for compile-line.
 # It says how to create a file with a .o suffix, given a file with a .c suffix.
@@ -64,7 +62,7 @@ $(LINK_TARGET) : $(OBJS)
 # $lt; for the pattern-matched dependency
 
 %.o : %.c
-	cc -g  -Wall -o $@ -c $<
+	cc -g3  -Wall -o $@ -c $<
   
 # These are Dependency Rules, which are rules without any command.
 # Dependency Rules indicate that if any file to the right of the colon changes,
@@ -73,6 +71,4 @@ $(LINK_TARGET) : $(OBJS)
 # (in this case, by the Pattern Rule above).
 # Dependency Rules are often used to capture header file dependencies.
 
-wgetX.o : wgetX.h url.h 
-url.o : url.h
  

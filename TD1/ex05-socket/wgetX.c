@@ -110,7 +110,7 @@ char* download_page(url_info info, char *recv_buf_t)
 		  htmlcontent = buf;
 		}
 		if(htmlstart){
-		  strcat(recv_buf_t, buf);
+		  strcat(recv_buf_t, htmlcontent);
 		}
 
 		memset(buf, 0, tmpres);

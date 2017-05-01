@@ -8,14 +8,13 @@
 
 # Here is a simple Make Macro.
 
-LINK_TARGET = wgetX
+LINK_TARGET = dns_client dns_server
 
 # Here is a Make Macro that uses the backslash to extend to multiple lines.
 # This allows quick modification of more object files.
 
 OBJS = \
-	wgetX.o \
-	url.o
+	dns_client.o dns.o dns_server.o
 	
 # Here is a Make Macro defined by two Macro Expansions.
 # A Macro Expansion may be treated as a textual replacement of the Make Macro.
@@ -51,11 +50,16 @@ clean:
 # its dependencies' rules have been executed successfully.
 
 # Here is a Rule that uses some built-in Make Macros in its command:
-# $@ expands to the rule's target, in this case "wgetX".
-# $^ expands to the rule's dependencies, in this case the two files
-# url.o and wgetX.o
-$(LINK_TARGET) : $(OBJS)
-	cc -g -o $@ $^ 
+# $@ expands to the rule's target
+# $^ expands to the rule's dependencies
+#$(LINK_TARGET) : $(OBJS)
+#	cc -g3 -o $@ $^ 
+
+dns_client : dns_client.o dns.o
+	gcc -g3 -o $@ $^
+
+dns_server : dns_server.o dns.o
+	gcc -g3 -o $@ $^
 
 # Here is a Pattern Rule, often used for compile-line.
 # It says how to create a file with a .o suffix, given a file with a .c suffix.
@@ -64,7 +68,7 @@ $(LINK_TARGET) : $(OBJS)
 # $lt; for the pattern-matched dependency
 
 %.o : %.c
-	cc -g  -Wall -o $@ -c $<
+	gcc -g3  -std=c99 -Wall -o $@ -c $<
   
 # These are Dependency Rules, which are rules without any command.
 # Dependency Rules indicate that if any file to the right of the colon changes,
@@ -73,6 +77,7 @@ $(LINK_TARGET) : $(OBJS)
 # (in this case, by the Pattern Rule above).
 # Dependency Rules are often used to capture header file dependencies.
 
-wgetX.o : wgetX.h url.h 
-url.o : url.h
+dns_client.c: dns.h dns.c
+dns_server.c: dns.h dns.c
+
  
