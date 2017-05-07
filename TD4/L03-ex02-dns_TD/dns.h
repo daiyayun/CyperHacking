@@ -275,7 +275,7 @@ void get_domain_name(uint8_t *p, uint8_t *buff, uint8_t *name, int *position);
  * \param *server_addr the DNS server address in char array like "8.8.8.8".  For the moment, only IPv4 is supported.
  * \param *host_name the name to be resolved in char array.
  */
-void send_dns_query(int sockfd, char *server_addr, char *host_name);
+void send_dns_query(int sockfd, struct sockaddr *server, char *host_name);
 
 /**
  * \brief parse a DNS query

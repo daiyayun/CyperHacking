@@ -23,5 +23,6 @@ int main(int argc, char *argv[])
 	struct sockaddr server;
 
 	int port = 53; //the default port of DNS service
-
+	uint8_t buf[BUF_SIZE];
+	if(recvfrom())
 }

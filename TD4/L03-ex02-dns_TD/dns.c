@@ -20,21 +20,93 @@
 void build_dns_header(dns_header *dns, int id, int query, int qd_count,
 		int an_count, int ns_count, int ar_count)
 {
+	dns->id = (uint16_t)id;
+	dns->qr = query;
+	dns->qd_count = qd_count;
+	dns->an_count = an_count;
+	dns->ns_count = ns_count;
+	dns->ar_count = ar_count;
 }
 
 void build_name_section(uint8_t *qname, char *host_name, int *position)
 {
+	get_dns_name(qname, (uint8_t*)host_name);
+	*position = strlen((char*)qname);
 }
 
 
 
-void send_dns_query(int sockfd, char *dns_server, char *host_name)
+void send_dns_query(int sockfd, struct sockaddr *server, char *host_name)
 {
+	uint8_t buf[BUF_SIZE];
+	dns_header *dns = NULL;
+	dns = (dns_header*)&buf;
+	build_dns_header(dns,0,0,1,0,0,0);
+	uint8_t *qname;
+	qname = (uint8_t*)&buf[sizeof(dns_header)];
+	int* position =  (int*)malloc(sizeof(int));
+	build_name_section(qname, host_name, position);
+	struct question* ques;
+	ques = (question*)(qname + (*position)+1);
+	ques->qtype = TYPE_TXT;
+	ques->qclass = CLASS_IN;
+	if(sendto(sockfd,buf,sizeof(dns_header)+(*position)+1+sizeof(question),0,server,sizeof(struct sockaddr))<0){
+		exit_with_error("sendto failed");
+	}
+
 }
 
 int parse_dns_query(uint8_t *buf, query *queries,
 		res_record *answers, res_record *auth, res_record *addit)
 {
+	//read DNS header
+	dns_header* dns;
+	dns = (dns_header*)buf;
+	printf("\nThe response contains : ");
+    printf("\n %d Questions.",dns->qd_count);
+    printf("\n %d Answers.",dns->an_count);
+    printf("\n %d Authoritative Servers.",dns->ns_count);
+    printf("\n %d Additional records.\n\n",dns->ar_count);
+
+    //read the query
+	uint8_t* reader = &buf[sizeof(dns_header)];
+	queries->qname = (uint8_t*)reader;
+	reader += (strlen((char*)queries->qname)+1);
+	queries->ques = (question*)reader;
+
+	//read the answers
+	reader += sizeof(question);
+	int position = 0;
+	for(int i=0; i<dns->an_count; i++){
+		get_domain_name(reader,reader,answers[i].name,&position);
+		reader += position;
+		answers[i].element = (r_element*)reader;
+		reader += 10;
+		answers[i].rdata = (uint8_t*)reader;
+		reader += (strlen((char*)answers[i].rdata)+1);
+	}
+
+	//read the authorities
+	for(int i=0; i<dns->ns_count; i++){
+		get_domain_name(reader,reader,auth[i].name,&position);
+		reader += position;
+		auth[i].element = (r_element*)reader;
+		reader += 10;
+		auth[i].rdata = (uint8_t*)reader;
+		reader += (strlen((char*)auth[i].rdata)+1);
+	}
+
+	//read the additionnals
+	for(int i=0; i<dns->ar_count; i++){
+		get_domain_name(reader,reader,addit[i].name,&position);
+		reader += position;
+		addit[i].element = (r_element*)reader;
+		reader += 10;
+		addit[i].rdata = (uint8_t*)reader;
+		reader += (strlen((char*)addit[i].rdata)+1);
+	}
+
+	return dns->id;
 }
 
 

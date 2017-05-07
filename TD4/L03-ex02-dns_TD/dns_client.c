@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
 	server_v4->sin_addr.s_addr = inet_addr(dns_server);
 
 	//build and send out the query
-	send_dns_query(sockfd, dns_server, (char*)host_name);
+	send_dns_query(sockfd, &server, (char*)host_name);
 
 	//	memset(buf, 0, BUF_SIZE);
 	printf("Receiving DNS answer...\n");
