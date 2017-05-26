@@ -22,9 +22,9 @@
  */
 int main(int argc, char *argv[])
 {
-	char *dns_server = "8.8.8.8"; //google's server
-//	char *dns_server = "129.104.32.41"; //X's dns server
-//	char *dns_server = "127.0.0.1";
+	//char *dns_server = "8.8.8.8"; //google's server
+	//char *dns_server = "129.104.32.41"; //X's dns server
+	char *dns_server = "127.0.0.1";
 
 	int sockfd;
 
@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 	struct sockaddr server;
 	struct sockaddr_in *server_v4 = (struct sockaddr_in *)(&server);
 	server_v4->sin_family = AF_INET;
-	server_v4->sin_port = htons(53);
+	server_v4->sin_port = htons(5000);
 	server_v4->sin_addr.s_addr = inet_addr(dns_server);
 
 	//build and send out the query
