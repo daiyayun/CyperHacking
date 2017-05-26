@@ -78,25 +78,68 @@ int parse_dns_query(uint8_t *buf, query *queries,
 
 	//printf("query in parse %s\n", (char *) reader);
 
-	queries->qname = (uint8_t*)reader;
-	//printf("query in parse: %s\n",(char *) queries->qname);
-	reader += (strlen((char*)queries->qname)+1);
+	// queries->qname = (uint8_t*)reader;
+	// printf("query in parse: %s\n",(char *) queries->qname);
+	// reader += (strlen((char*)queries->qname)+1);
+	// queries->ques = (question*)reader;
+
+	printf("Queries:\n");
+	uint8_t qname[HOST_NAME_SIZE];
+	int position = 0;
+	get_domain_name(reader, buf, qname, &position);
+	queries->qname = malloc(HOST_NAME_SIZE);
+	memset(queries->qname, 0, HOST_NAME_SIZE);
+	strncpy((char*)(queries->qname), (char*)qname, strlen((char*)qname));
+	printf("name: %s \n", queries->qname);
+	reader += position;
+	reader++;
+
 	queries->ques = (question*)reader;
+	printf("query type: %d, class: %d\n",
+			ntohs(queries->ques->qtype), ntohs(queries->ques->qclass));
+	//reader += sizeof(question);
+
 
 	//read the answers
 	reader += sizeof(question);
-	int position = 0;
-	for(int i=0; i<dns->an_count; i++){
+	printf("\nAnswers:\n");
+	//position = 0;
+	for(int i=0; i<ntohs(dns->an_count); i++){
+		printf("Answer %d\n", i+1);
+
+		uint8_t name[HOST_NAME_SIZE];
+		//int position = 0;
+		get_domain_name(reader, buf, name, &position);
+		//answers[i].name = calloc(1, HOST_NAME_SIZE);
+		
 		answers[i].name = (uint8_t*)malloc(sizeof(uint8_t)*HOST_NAME_SIZE);
-		get_domain_name(reader,buf,answers[i].name,&position);
+		strncpy((char*)(answers[i].name), (char*)name, strlen((char*)name));
+		printf("name: %s \n", answers[i].name);
+		//get_domain_name(reader,buf,answers[i].name,&position);
 		reader += position;
+		//reader ++;
 
 		//answers[i].element = (r_element*)malloc(10);
 		answers[i].element = (r_element*)reader;
-		reader += 10;
+		int length = ntohs(answers[i].element->rdlength);
+		printf("type: %d, class: %d, ttl: %d, rdlength: %d\n",
+				ntohs(answers[i].element->type), ntohs(answers[i].element->_class),
+				ntohl(answers[i].element->ttl), length);
 
-		answers[i].rdata = (uint8_t*)reader;
-		reader += (strlen((char*)answers[i].rdata)+1);
+		reader += sizeof(r_element);
+		if(ntohs(answers[i].element->type) == TYPE_A) //ipv4 address
+		{
+			answers[i].rdata = (uint8_t *)malloc(length);
+			memset(answers[i].rdata, 0, length);
+			memcpy(answers[i].rdata, reader, length);
+
+			char ip4[INET_ADDRSTRLEN];  // space to hold the IPv4 string
+			inet_ntop(AF_INET, answers[i].rdata, ip4, INET_ADDRSTRLEN);
+			printf("The IPv4 address is: %s\n", ip4);
+
+		}
+
+		reader += ntohs(answers[i].element->rdlength);
 	}
 
 	//read the authorities

@@ -57,10 +57,23 @@ int main(int argc, char *argv[])
 	strncpy(data, data_string, strlen(data_string));
 
 	//fill the IP header here
-
+	int payload = strlen(data_string);
+	iph->tos = 0;
+	iph->tor_len=htons(payload + sizeof(struct iphdr) + sizeof(struct udphdr));
+	iph->id = 0;
+	ipd->frag_off = 0;
+	iph->ttl = 8; //time to live is eight
+	iph->protocol = IPPROTO_UDP;
+	iph->check = checksum((unsigned short*)iph, sizeof(struct iphdr));
+	iph->saddr = SRC_IP;
+	iph->daddr = DEST_IP;
 
 	//fill the UDP header
-
+	udph->source = htons(SRC_PORT);
+	udph->dest = htons(DEST_PORT);
+	udph->len = htons(sizeof(struct udphdr)+payload);
+	udph->check = 0;
+	
 
 	//send the packet
 
