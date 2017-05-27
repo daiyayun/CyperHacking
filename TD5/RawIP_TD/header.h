@@ -228,6 +228,9 @@ struct pseudo_udp_header
  */
 unsigned short checksum(unsigned short *ptr, int nbytes);
 
+// Build IPv4 UDP pseudo-header and call checksum function.
+unsigned short udp4_checksum(struct iphdr iphdr, struct udphdr udphdr, uint8_t *payload, int payloadlen);
+
 struct sockaddr_in source,dest;
 FILE *logfile;
 

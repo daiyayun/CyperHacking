@@ -92,7 +92,7 @@ int main(int argc, char *argv[])
 		count += IN_SIZE;
 
 		if(sendto(sockfd,send_buf,count,0,&clientaddr,clientlen)<0){
-			exit_with_error("sendto failed");
+			exit_with_error("sendto() failed.");
 		}
 		memset(buf, 0, BUF_SIZE);
 		memset(send_buf, 0, BUF_SIZE);

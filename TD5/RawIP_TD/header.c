@@ -262,3 +262,72 @@ unsigned short checksum(unsigned short *ptr,int nbytes)
     return(answer);
 }
 
+// Build IPv4 UDP pseudo-header and call checksum function.
+unsigned short udp4_checksum (struct iphdr iphdr, struct udphdr udphdr, uint8_t *payload, int payloadlen)
+{
+  char buf[65536];
+  char *ptr;
+  int chksumlen = 0;
+  int i;
+
+  ptr = &buf[0];  // ptr points to beginning of buffer buf
+
+  // Copy source IP address into buf (32 bits)
+  memcpy (ptr, &iphdr.saddr, sizeof (iphdr.saddr));
+  ptr += sizeof (iphdr.saddr);
+  chksumlen += sizeof (iphdr.saddr);
+
+  // Copy destination IP address into buf (32 bits)
+  memcpy (ptr, &iphdr.daddr, sizeof (iphdr.daddr));
+  ptr += sizeof (iphdr.daddr);
+  chksumlen += sizeof (iphdr.daddr);
+
+  // Copy zero field to buf (8 bits)
+  *ptr = 0; ptr++;
+  chksumlen += 1;
+
+  // Copy transport layer protocol to buf (8 bits)
+  memcpy (ptr, &iphdr.protocol, sizeof (iphdr.protocol));
+  ptr += sizeof (iphdr.protocol);
+  chksumlen += sizeof (iphdr.protocol);
+
+  // Copy UDP length to buf (16 bits)
+  memcpy (ptr, &udphdr.len, sizeof (udphdr.len));
+  ptr += sizeof (udphdr.len);
+  chksumlen += sizeof (udphdr.len);
+
+  // Copy UDP source port to buf (16 bits)
+  memcpy (ptr, &udphdr.source, sizeof (udphdr.source));
+  ptr += sizeof (udphdr.source);
+  chksumlen += sizeof (udphdr.source);
+
+  // Copy UDP destination port to buf (16 bits)
+  memcpy (ptr, &udphdr.dest, sizeof (udphdr.dest));
+  ptr += sizeof (udphdr.dest);
+  chksumlen += sizeof (udphdr.dest);
+
+  // Copy UDP length again to buf (16 bits)
+  memcpy (ptr, &udphdr.len, sizeof (udphdr.len));
+  ptr += sizeof (udphdr.len);
+  chksumlen += sizeof (udphdr.len);
+
+  // Copy UDP checksum to buf (16 bits)
+  // Zero, since we don't know it yet
+  *ptr = 0; ptr++;
+  *ptr = 0; ptr++;
+  chksumlen += 2;
+
+  // Copy payload to buf
+  memcpy (ptr, payload, payloadlen);
+  ptr += payloadlen;
+  chksumlen += payloadlen;
+
+  // Pad to the next 16-bit boundary
+  for (i=0; i<payloadlen%2; i++, ptr++) {
+    *ptr = 0;
+    ptr++;
+    chksumlen++;
+  }
+
+  return checksum ((unsigned short *) buf, chksumlen);
+}
