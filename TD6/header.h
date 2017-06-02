@@ -32,7 +32,7 @@
 
 
 #define __BYTE_ORDER __LITTLE_ENDIAN
-
+typedef unsigned char uint8_t;
 
 //TCP header
 

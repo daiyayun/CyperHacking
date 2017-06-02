@@ -15,10 +15,11 @@
 
 #include "header.h"
 
-#define SRC_IP  "192.168.1.111" //set your source ip here. It can be a fake one
+//#define SRC_IP  "192.168.1.111" //set your source ip here. It can be a fake one
+#define SRC_IP  "10.200.0.124" //set your source ip here. It can be a fake one
 #define SRC_PORT 54321 //set the source port here. It can be a fake one
 
-#define DEST_IP "129.104.89.108" //set your destination ip here
+#define DEST_IP "192.168.1.123" //set your destination ip here
 #define DEST_PORT 5555 //set the destination port here
 #define TEST_STRING "test data" //a test string as packet payload
 
@@ -60,8 +61,11 @@ int main(int argc, char *argv[])
 
 	//fill the IP header here
 	int payload = strlen(data_string);
+	iph->version = 4;
+	iph->ihl = 5;
 	iph->tos = 0;
-	iph->tot_len=htons(payload + sizeof(struct iphdr) + sizeof(struct udphdr));
+	//iph->tot_len=htons(payload + sizeof(struct iphdr) + sizeof(struct udphdr));
+	iph->tot_len=payload + sizeof(struct iphdr) + sizeof(struct udphdr);
 	iph->id = htons(0);
 	iph->frag_off = 0;
 	iph->ttl = 255; //time to live is eight
@@ -82,12 +86,14 @@ int main(int argc, char *argv[])
     	exit (EXIT_FAILURE);
   	}
 
+  	printf("ip filled\n");
 	//fill the UDP header
 	udph->source = htons(SRC_PORT);
 	udph->dest = htons(DEST_PORT);
 	udph->len = htons(sizeof(struct udphdr)+payload);
 	udph->check = 0;
 	udph->check = udp4_checksum (*iph, *udph, (uint8_t *)data_string, payload);
+	printf("udp filled\n");
 	
 
 	//send the packet
@@ -95,6 +101,7 @@ int main(int argc, char *argv[])
 	memset(&dest, '0', sizeof(dest));
 	dest.sin_family = AF_INET;
 	dest.sin_addr.s_addr = iph->daddr;
+	dest.sin_port = htons(DEST_PORT);
 	if (sendto (fd, packet, payload + sizeof(struct iphdr) + sizeof(struct udphdr), 0, (struct sockaddr *) &dest, sizeof (struct sockaddr)) < 0)  {
     	perror ("sendto() failed ");
     	exit (EXIT_FAILURE);

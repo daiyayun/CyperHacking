@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 	struct sockaddr clientaddr;
 	struct sockaddr_in *client = (struct sockaddr_in*)(&clientaddr);
 
-	int port = 5000; //the default port of DNS service
+	int port = 53; //the default port of DNS service
 	uint8_t buf[BUF_SIZE], send_buf[BUF_SIZE];
 
 	sockfd = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
