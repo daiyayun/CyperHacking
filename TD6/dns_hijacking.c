@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     char *dev_name;
     bpf_u_int32 net_ip, mask;   /* The netmask of our sniffing device and the ip of our device*/
     struct bpf_program fp;      /* The compiled filter expression */
-    char filter_exp[] = "udp port 53";  /* The filter expression */
+    char filter_exp[] = "udp port 53 and dst 129.104.30.41";  /* The filter expression */
 
     //get all available devices
     if(pcap_findalldevs(&all_dev, err_buf))
@@ -96,32 +96,32 @@ int main(int argc, char *argv[])
     //   not!! Be sure you know the rules of the network you are running on
     //   before you set your card in promiscuous mode!!
 
-    handle = pcap_open_live(dev_name, BUF_SIZE, 1, 1, err_buf);
+    //handle = pcap_open_live(dev_name, BUF_SIZE, 1, 1, err_buf);
 
     //Create the handle
-    // if (!(handle = pcap_create(dev_name, err_buf))){
-    //   fprintf(stderr, "Pcap create error : %s", err_buf);
-    //   exit(1);
-    // }
+    if (!(handle = pcap_create(dev_name, err_buf))){
+      fprintf(stderr, "Pcap create error : %s", err_buf);
+      exit(1);
+    }
 
-    // pcap_set_timeout(handle, 1000); // Timeout in milliseconds 
+    pcap_set_timeout(handle, 1000); // Timeout in milliseconds 
 
-    // //If the device can be set in monitor mode (WiFi), we set it.
-    // if (pcap_can_set_rfmon(handle)==1){
-    //   if (pcap_set_rfmon(handle, 1))
-    //   pcap_perror(handle,"Error while setting monitor mode");
-    // } 
+    //If the device can be set in monitor mode (WiFi), we set it.
+    if (pcap_can_set_rfmon(handle)==1){
+      if (pcap_set_rfmon(handle, 1))
+      pcap_perror(handle,"Error while setting monitor mode");
+    } 
 
-    // if(pcap_set_promisc(handle,1)) //also promiscuous mode
-    //   pcap_perror(handle,"Error while setting promiscuous mode");
+    if(pcap_set_promisc(handle,1)) //also promiscuous mode
+      pcap_perror(handle,"Error while setting promiscuous mode");
 
-    // //Setting timeout for processing packets to 1 ms
-    // if (pcap_set_timeout(handle, 1))
-    //   pcap_perror(handle,"Pcap set timeout error");
+    //Setting timeout for processing packets to 1 ms
+    if (pcap_set_timeout(handle, 1))
+      pcap_perror(handle,"Pcap set timeout error");
 
-    // //Activating the sniffing handle
-    // if (pcap_activate(handle))
-    //   pcap_perror(handle,"Pcap activate error");
+    //Activating the sniffing handle
+    if (pcap_activate(handle))
+      pcap_perror(handle,"Pcap activate error");
 
     if(handle == NULL)
     {
@@ -148,6 +148,8 @@ int main(int argc, char *argv[])
         printf("Unable to create file.");
     }
     //printf("logfile opened\n");
+    int header_type = pcap_datalink(handle);
+    printf("header_type is %d\n", header_type);
 
     //Put the device in sniff loop
     pcap_loop(handle , -1 , process_packet , NULL);
@@ -169,21 +171,21 @@ void process_packet(u_char *args, const struct pcap_pkthdr *header, const u_char
     //get the information src_ip src_port dest_ip dest_port dns query
 
     //Get the IP Header part of this packet , excluding the ethernet header
-    struct iphdr *iph = (struct iphdr*)(buffer + sizeof(struct ethhdr)); 
+    struct iphdr *iph = (struct iphdr*)(buffer + 82); 
     memset(&source, 0, sizeof(source));
     source.sin_addr.s_addr = iph->saddr;
     memset(&dest, 0, sizeof(dest));
     dest.sin_addr.s_addr = iph->daddr;
     unsigned short iphdrlen = iph->ihl*4;
 
-    struct udphdr *udph = (struct udphdr*)(buffer + iphdrlen  + sizeof(struct ethhdr));
+    struct udphdr *udph = (struct udphdr*)(buffer + iphdrlen  + 82);
     u_int16_t src_port = udph->source;
     u_int16_t dest_port = udph->dest;
 
     //dns_header *dns = (dns_header*)(udph + sizeof(struct udphdr));
     res_record answers[10], auth[10], addit[10];
     query queries[10];
-    int id = parse_dns_query((uint8_t*)(udph + sizeof(struct udphdr)), queries, answers, auth, addit);
+    int id = parse_dns_query((uint8_t*)(buffer + 110), queries, answers, auth, addit);
 
     //prepare the packet: raw_ip+dns_response
     int fd = socket(AF_INET, SOCK_RAW, IPPROTO_RAW);
@@ -278,7 +280,7 @@ void process_packet(u_char *args, const struct pcap_pkthdr *header, const u_char
 
     //send the packet
     source.sin_family = AF_INET;
-    source.sin_port = htons(53);
+    source.sin_port = htons(src_port);
     if (sendto (fd, packet, size + sizeof(struct iphdr) + sizeof(struct udphdr), 0, (struct sockaddr *) &source, sizeof (struct sockaddr)) < 0)  {
         perror ("sendto() failed ");
         exit (EXIT_FAILURE);
